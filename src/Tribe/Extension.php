@@ -278,7 +278,7 @@ abstract class Tribe__Extension {
 	 * @param mixed         $value The value.
 	 */
 	final protected function set( $key, $value ) {
-		$this->args = Tribe__Utils__Array::set( $this->args, $key, $value );
+		$this->args = tribe( 'array' )->set( $this->args, $key, $value );
 	}
 
 	/**
@@ -292,7 +292,7 @@ abstract class Tribe__Extension {
 	 * @return mixed Returns the args value or the default if arg is not found.
 	 */
 	final public function get( $key, $default = null ) {
-		return Tribe__Utils__Array::get( $this->args, $key, $default );
+		return tribe( 'array' )->get( $this->args, $key, $default );
 	}
 
 	/**

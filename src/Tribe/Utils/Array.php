@@ -19,7 +19,7 @@ class Tribe__Utils__Array {
 	 *
 	 * @return array Full array with the key set to the specified value.
 	 */
-	public static function set( array $array, $key, $value ) {
+	public function set( array $array, $key, $value ) {
 		// Convert strings and such to array.
 		$key = (array) $key;
 
@@ -67,7 +67,7 @@ class Tribe__Utils__Array {
 	 *
 	 * @return mixed The value of the specified index or the default if not found.
 	 */
-	public static function get( $variable, $indexes, $default = null ) {
+	public function get( $variable, $indexes, $default = null ) {
 		if ( is_object( $variable ) ) {
 			$variable = (array) $variable;
 		}
@@ -99,7 +99,7 @@ class Tribe__Utils__Array {
 	 *
 	 * @return false|int Integer position of first needle occurrence.
 	 */
-	public static function strpos( $haystack, $needles, $offset = 0 ) {
+	public function strpos( $haystack, $needles, $offset = 0 ) {
 		$needles = (array) $needles;
 
 		foreach ( $needles as $i ) {

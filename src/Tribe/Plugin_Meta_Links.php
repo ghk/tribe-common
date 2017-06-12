@@ -79,14 +79,14 @@ class Tribe__Plugin_Meta_Links {
 		$basename = plugin_basename( $plugin );
 
 		// Get any current links for this plugin.
-		$cur_links = Tribe__Utils__Array::get( $this->meta_links, $basename, array() );
+		$cur_links = tribe( 'array' )->get( $this->meta_links, $basename, array() );
 
 		$cur_links[] = array(
 			'html' => $html,
 			'remove' => $remove,
 		);
 
-		$this->meta_links = Tribe__Utils__Array::set( $this->meta_links, $basename, $cur_links );
+		$this->meta_links = tribe( 'array' )->set( $this->meta_links, $basename, $cur_links );
 	}
 
 	/**
@@ -99,7 +99,7 @@ class Tribe__Plugin_Meta_Links {
 	 */
 	public function filter_meta_links( $links, $basename ) {
 		// Gets any links that are set for this plugin, defaults to an empty array.
-		$set_links = Tribe__Utils__Array::get( $this->meta_links, $basename, array() );
+		$set_links = tribe( 'array' )->get( $this->meta_links, $basename, array() );
 
 		foreach ( $set_links as $link ) {
 
