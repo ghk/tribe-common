@@ -495,5 +495,7 @@ class Tribe__Main {
 		tribe_singleton( 'chunker', 'Tribe__Meta__Chunker', array( 'set_post_types', 'hook' ) );
 		tribe_singleton( 'cache', 'Tribe__Cache' );
 		tribe_singleton( 'plugins.api', 'Tribe__Plugins_API', array( 'hook' ) );
+
+		tribe_register( 'array', 'Tribe__Utils__Array' );
 	}
 }
