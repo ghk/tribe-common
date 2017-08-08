@@ -337,14 +337,14 @@ class Tribe__Assets {
 
 		// Merge Arguments
 		$asset = (object) wp_parse_args( $arguments, $defaults );
-
-		// Enforce these one
+error_log(print_r($origin, true));
+		// Enforce these ones
 		$asset->slug             = $slug;
 		$asset->file             = $file;
 		$asset->deps             = $deps;
 		$asset->origin           = $origin;
-		$asset->origin_path = trailingslashit( ! empty( $origin->plugin_path ) ? $origin->plugin_path : $origin->pluginPath );;
-		$asset->origin_url  = trailingslashit( ! empty( $origin->plugin_url ) ? $origin->plugin_url : $origin->pluginUrl );;
+		$asset->origin_path      = trailingslashit( ! empty( $origin->plugin_path ) ? $origin->plugin_path : $origin->pluginPath );;
+		$asset->origin_url       = trailingslashit( ! empty( $origin->plugin_url ) ? $origin->plugin_url : $origin->pluginUrl );;
 		$asset->origin_name      = $origin_name;
 		$asset->action           = $action;
 		$asset->already_enqueued = false;
