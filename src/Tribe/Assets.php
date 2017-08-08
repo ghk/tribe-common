@@ -337,17 +337,23 @@ class Tribe__Assets {
 
 		// Merge Arguments
 		$asset = (object) wp_parse_args( $arguments, $defaults );
-error_log(print_r($origin, true));
-		// Enforce these ones
+
+		// Enforce these one
 		$asset->slug             = $slug;
 		$asset->file             = $file;
 		$asset->deps             = $deps;
-		$asset->origin           = $origin;
-		$asset->origin_path      = trailingslashit( ! empty( $origin->plugin_path ) ? $origin->plugin_path : $origin->pluginPath );;
-		$asset->origin_url       = trailingslashit( ! empty( $origin->plugin_url ) ? $origin->plugin_url : $origin->pluginUrl );;
-		$asset->origin_name      = $origin_name;
 		$asset->action           = $action;
+		$asset->origin           = $origin;
+		$asset->origin_path      = trailingslashit( ! empty( $origin->plugin_path ) ? $origin->plugin_path : $origin->pluginPath );
+		$asset->origin_name      = $origin_name;
 		$asset->already_enqueued = false;
+
+		// Origin URL might throw notices so we double check
+		$asset->origin_url  = ! empty( $origin->plugin_url ) ? $origin->plugin_url : null;
+		$asset->origin_url  = ! empty( $origin->pluginUrl ) ? $origin->pluginUrl : null;
+		if ( ! empty( $asset->origin_url ) ) {
+			$asset->origin_url = trailingslashit( $asset->origin_url );
+		}
 
 		// If we don't have a type on the arguments we grab from the File path
 		if ( is_null( $asset->type ) ) {
