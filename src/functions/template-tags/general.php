@@ -163,7 +163,7 @@ if ( ! function_exists( 'tribe_get_date_format' ) ) {
 		if ( $with_year ) {
 			$format = tribe_get_date_option( 'dateWithYearFormat', get_option( 'date_format' ) );
 		} else {
-			$format = tribe_get_date_option( 'dateWithoutYearFormat', 'F j' );
+			$format = tribe_get_date_option( 'dateWithoutYearFormat', 'j F' );
 		}
 
 		return apply_filters( 'tribe_date_format', $format );

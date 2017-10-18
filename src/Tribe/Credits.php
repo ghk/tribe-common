@@ -14,7 +14,7 @@ class Tribe__Credits {
 	 */
 	public function hook() {
 		add_filter( 'tribe_events_after_html', array( $this, 'html_comment_credit' ) );
-		add_filter( 'admin_footer_text', array( $this, 'rating_nudge' ), 1, 2 );
+		//add_filter( 'admin_footer_text', array( $this, 'rating_nudge' ), 1, 2 );
 	}
 
 	/**
